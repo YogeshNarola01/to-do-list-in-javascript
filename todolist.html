@@ -1,82 +1,83 @@
-<html style="width: 50%; margin: auto; border: 2px solid teal; border-radius: 5%;">
-<header>
-    <title>To Do List.</title>
-</header>
-<h2 align="center" style="color: red; padding: 20px; border-radius: 50px; background-color: rgba(0, 128, 128, 0.56);">My
-    To Do List</h2>
-<div style="padding: 50px; background-color: teal; border: none;">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+</head>
+
+<body style="background-color: rgba(0, 128, 128, 0.213); height: 100%; border: 3px solid teal; border-radius: 50px;">
     <div>
-        <table align="center">
-            <thead>
+        <h2 align="center" style="color: red;">My To Do List</h2>
+        <table align="center" border="5" style="margin-bottom: 70px;  background-color:rgba(128, 128, 128, 0.066);">
+            <thead style="padding: 0px; width: 400px;">
                 <tr>
-                    <td><input style="width: 300px; height: 40px; border-radius: 50px; border: none;" type="text"
-                            id="name"></td>
-                    <td><input style="width: 50px; height: 40px; font-size: 18px; border-radius: 10%; border: none;"
-                            type="button" value="Add" onclick="saveRecord()"></td>
+                    <td style="border: none; "><input
+                            style="width: 350px; height: 20px; border-radius: 50px; background-color: rgba(128, 128, 128, 0.42);"
+                            type="text" id="name" style="font-size: large;">
+                    </td>
+                    <td style="border: none;"><button
+                            style="width: 50px; height: 25px; border-radius: 50px; background-color:rgba(128, 128, 128, 0.42);"
+                            onclick="saveRecord()" style="font-size: large;">Add</button></td>
                 </tr>
             </thead>
         </table>
-    </div>
-</div>
-
-<div style="padding: 50px; background-color: rgba(0, 128, 128, 0.56);">
-    <div>
-        <table align="center">
-            <thead>
+        <hr>
+        <hr>
+        <h2 align="center" style="color: red;">All Data</h2>
+        <table align="center" border="5" style="margin-bottom: 50px;  background-color:rgba(128, 128, 128, 0.066);">
+            <thead style="padding: 20px; width: 400px;">
                 <tr>
                     <td
-                        style="width: 50px; height: 40px; background-color: #FFFFFF; text-align: center; border-radius: 50px; border: none;">
-                        Id</td>
+                        style="width: 350px; height: 20px; border-radius: 50px; background-color: rgba(128, 128, 128, 0.42); margin: auto;">
+                        &nbsp;Title &nbsp;</td>
                     <td
-                        style="width: 250px; height: 40px; background-color: #FFFFFF; text-align: center; border-radius: 50px; border: none;">
-                        Text</td>
-                    <td
-                        style="width: 50px; height: 40px; background-color: #FFFFFF; text-align: center; border-radius: 50px; border: none;">
-                        Delet</td>
+                        style="width: 50px; height: 25px; border-radius: 50px; background-color:rgba(128, 128, 128, 0.42);">
+                        &nbsp;Delet &nbsp;</td>
                 </tr>
             </thead>
             <tbody id="allrecord"></tbody>
         </table>
     </div>
-</div>
+</body>
 
-<script>
+<script type="text/javascript">
     let record = [];
     const viewRecord = () => {
-        let tbl = "";
+        var tbl = "";
         record.map((val) => {
             return (
                 tbl += `
                         <tr>
-                            <td style="width: 50px; height: 40px; background-color: aliceblue; text-align: center; border-radius: 50px; border: none;">${val.id}</td>
-                            <td style="width: 250px; height: 40px; background-color: aliceblue; text-align: center; border-radius: 50px; border: none;">${val.name}</td>
-                            <td style="width: 50px; height: 40px; background-color: aliceblue; text-align: center;   border-radius: 50px; border: none;"><buton onclick="deletRecord(${val.id})">Delet</button></td>
+                            <td style="width: 350px; height: 20px; border-radius: 50px; background-color: rgba(128, 128, 128, 0.136);">${val.name}</td>
+                            <td style="border : none;"><button style="width: 50px; height: 25px; border-radius: 50px; background-color:rgba(128, 128, 128, 0.128);" onclick="deletRecord(${val.id})">Delet</button></td>
                         </tr>
-                    `
+                      `
             )
         });
-        document.getElementById('allrecord').innerHTML = tbl;
+        document.getElementById("allrecord").innerHTML = tbl;
     }
     viewRecord();
 
     const saveRecord = () => {
-        let username = document.getElementById('name').value;
-        let id = Math.floor(Math.random()*10000);
+        let username = document.getElementById("name").value;
 
-        let obj = {
-            username: name,
-            id: id
+        var obj = {
+            id: Math.floor(Math.random() * 10000),
+            name: username,
+
         }
         record.push(obj);
         viewRecord();
-        document.getElementById('name').value = "";
+        document.getElementById("name").value = "";
     }
 
     const deletRecord = (id) => {
-        var deletr = record.filter((val) => {
+        var deletR = record.filter((val) => {
             return val.id != id;
         });
-        record = deletr;
+        record = deletR;
         viewRecord();
     }
 </script>
