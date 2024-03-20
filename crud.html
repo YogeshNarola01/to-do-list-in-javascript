@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crud Opration</title>
+</head>
+
+<body>
+    <center>
+        <table border="6">
+            <tr>
+                <td>Name</td>
+                <td>
+                    <input type="text" id="name">
+                </td>
+            </tr>
+            <tr>
+                <td>Phone</td>
+                <td>
+                    <input type="text" id="phone">
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <button id="insert" type="button" onclick="save()">Submit</button>
+                    <button id="edit" type="button" onclick="edit()">Edit</button>
+                </td>
+            </tr>
+        </table>
+        <br><br><br>
+        <table border="6">
+            <tr>
+                <td>id</td>
+                <td>name</td>
+                <td>phone</td>
+                <td>action</td>
+            </tr>
+            <tbody id="record"></tbody>
+        </table>
+    </center>
+</body>
+<script src="crud.js" type="text/javascript"></script>
+
+</html>

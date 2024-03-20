@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management</title>
+</head>
+
+<body>
+    <center>
+        <h2>User Management</h2>
+        <form id="userForm">
+            <input type="text" id="name" placeholder="Name">
+            <input type="text" id="phone" placeholder="Phone">
+            <button type="button" onclick="save()">Add User</button>
+        </form>
+
+        <h3>Records</h3>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="record"></tbody>
+        </table>
+
+        <div id="edit" style="display: none;">
+            <h3>Edit User</h3>
+            <form id="editForm">
+                <input type="hidden" id="editid">
+                <input type="text" id="editname" placeholder="Name">
+                <input type="text" id="editphone" placeholder="Phone">
+                <button type="button" onclick="edit()">Save Changes</button>
+            </form>
+        </div>
+    </center>
+
+    <script src="localstorage.js"></script>
+</body>
+
+</html>

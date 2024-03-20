@@ -1,0 +1,89 @@
+<!-- <html>
+
+<div align="center" style="margin: auto; width: 350px; height: 250px; border:2px solid gray; border-radius: 5px;">
+    <h2>Stop Watch</h2>
+    <h2 id="sec"
+        style="width: 300px; height: 50px; background-color: rgba(128, 128, 128, 0.509); padding: 20px; border-radius: 5px;">
+    </h2>
+    <button onclick="start()" style="width: 80px; height: 40px; border-radius: 5px;">Start</button>
+    <button onclick="stop()" style="width: 80px; height: 40px; border-radius: 5px;">Stop</button>
+    <button onclick="reset()" style="width: 80px; height: 40px; border-radius: 5px;">Reset</button>
+</div>
+
+
+<script type="text/javascript">
+    let cnt = 0;
+    let sec;
+    function data() {
+        if (cnt <= 59) {
+            document.getElementById('sec').innerHTML = `00 : ${cnt}`;
+        }
+        cnt++;
+    }
+
+    function start() {
+        sec = setInterval(data, 1000);
+    }
+
+    function stop() {
+        clearInterval(sec);
+    }
+    function reset() {
+        cnt = 0;
+    }
+
+</script>
+
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div align="center"
+        style="width: 334px; padding-bottom: 20px; border-radius: 15px; border: 2px solid gray; margin: auto; background-color: rgba(128, 128, 128, 0.496);">
+        <h2>Stop Watch</h2>
+        <h1 style="width: 300px; height: 40px; border: 2px solid grey; border-radius: 15px; padding: 15px; background-color: rgba(128, 128, 128, 0.409);"
+            id="msg"> 00
+            : 00
+        </h1>
+        <button onclick="start()" style="width: 75px; height: 35px; border-radius: 8px;">Start</button>
+        <button onclick="stop()" style="width: 75px; height: 35px; border-radius: 8px;">Stop</button>
+        <button onclick="restart()" style="width: 75px; height: 35px; border-radius: 8px;">Restart</button>
+    </div>
+
+    <script>
+        let sec;
+        let cnt = 0;
+
+        function data() {
+            if (cnt <= 59) {
+                document.getElementById('msg').innerHTML = `00 : ${cnt}`;
+                if(cnt == 59){
+                    restart();
+                }
+            }
+            cnt++;
+        }
+
+        function start() {
+            sec = setInterval(data, 1000);
+        }
+
+        function stop() {
+            clearInterval(sec);
+        }
+
+        function restart() {
+            cnt = 0;
+        }
+    </script>
+</body>
+
+</html>
